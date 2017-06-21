@@ -19,7 +19,13 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
 {
-     ArrayList<String> items;
+    // A numeric code to identify the edit activity
+    public final static int EDIT_REQUEST_CODE = 20;
+    // keys used for passing data between activities
+    public final static String ITEM_TEXT = "itemText";
+    public final static String ITEM_POSITION = "itemPosition";
+
+    ArrayList<String> items;
     ArrayAdapter<String> itemsAdapter;
     ListView lvItems;
 
@@ -69,8 +75,17 @@ public class MainActivity extends AppCompatActivity
                 return true;
             }
         });
-    }
 
+        // set up item listener for edit (regular click)
+        /*lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
+            {
+
+            }
+        });
+    }
+    */
     private File getDataFile()
     {
         return new File(getFilesDir(), "todo.txt");
